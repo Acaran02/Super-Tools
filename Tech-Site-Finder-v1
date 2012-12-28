@@ -1,0 +1,201 @@
+<head>
+<script>
+// clears textareas for input //
+function ClearData()
+{
+document.myform.mainlist1.value = "";
+document.myform.outputbox.value = "";
+
+}
+
+//main script - searches a URL for a list of keywords. returns matches //
+function FilterTech()
+{
+  var count2 =0;
+	var mainlist = document.myform.mainlist1.value;
+	var TechWords = document.myform.TechKeywords.value;
+	mainlist = mainlist.replace(/\r/gi, "\n");
+	mainlist = mainlist.replace(/\n+/gi, "\n");
+	mainlist = mainlist.replace("\"","");
+	mainlist = mainlist.replace("›","/");
+
+	var listvalues = new Array();
+	var newlist = new Array();
+	var TargetKWs = new Array();
+	
+	TargetKWs = TechWords.split("\n");
+	listvalues = mainlist.split("\n");	
+
+	
+for (i=0; i<listvalues.length; i++){	
+	for (j=0; j<TargetKWs.length; j++){
+		var string = listvalues[i].search(TargetKWs[j]);
+		var qualifier = -1;
+			if(string != qualifier){
+				newlist.push(listvalues[i]); count2++ }
+	}
+document.myform.outputbox.value = newlist.join("\n").replace(",","\n");
+	}
+	alert( count2 + ' matches found! ');
+}
+
+
+// removes duplicate values from results //
+function RemoveDupes()
+{
+	var count = 0;
+	var mainlist = document.myform.outputbox.value;
+
+	var listvalues = new Array();
+	var newlist = new Array();
+	var hash = new Object();
+	listvalues = mainlist.split("\n");
+
+	
+	for (var i=0; i<listvalues.length; i++)
+	{
+		if (hash[listvalues[i].toLowerCase()] != 1)
+		{
+			newlist = newlist.concat(listvalues[i]);
+			hash[listvalues[i].toLowerCase()] = 1
+		}
+		else { count++; }
+	}
+	
+	var z= listvalues.length;
+	var unique = z-count;
+	document.myform.outputbox.value = newlist.join("\r\n");
+	alert('Removed ' + count + ' duplicate URLs from list. . . ' + unique +' unique URLs remain!');
+}
+
+
+</script>
+<style type="text/css">
+.header {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 36px;
+	color: #009;
+}
+.header3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-align: left;
+}
+.center {
+	text-align: center;
+}
+</style>
+
+
+<title>Tech Site Finder v.1 | By Ron Carandang</title>
+</head>
+
+
+<body>
+<form name="myform" method="post" action="">
+  <p class="header">TECH SITES FINDER v.1 </p>
+  <table width="200" border="0" cellspacing="15" cellpadding="0">
+    <tr>
+      <td class="header3"><p>Tech Keywords (add new word per line)</p></td>
+      <td><span class="header3">Enter list of websites below (raw values):</span></td>
+      <td><span class="header3">Tech Sites Candidates Found (raw):</span></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><textarea name="TechKeywords" id="TechKeywords" cols="15" rows="25">agile
+android
+apple
+apps
+appweb
+biz
+business
+chip
+cloud
+code
+Coding
+comput
+cool
+crowd
+css
+cyber
+design
+dev
+develop
+digital
+disrupt
+dot
+droid
+drupal
+gadget
+game
+geek
+gizmo
+graphic
+html
+hub
+info
+inter
+ios
+ipad
+iphone
+java
+joomla
+js
+linux
+logic
+media
+mobil
+mobile
+net
+online
+phonedata
+php
+press
+ps3
+psp
+ruby
+silicon
+social
+soft
+start
+startup
+Sys
+tablet
+tech
+telecom
+tip
+tut
+tutorial
+Tweet
+Twit
+UI
+User
+UX
+w3
+ware
+wifi
+wii
+win
+window
+wp
+xbox
+zone</textarea></td>
+      <td><textarea name="mainlist1" id="mainlist1" cols="40" rows="25"></textarea></td>
+      <td><textarea name="outputbox" id="outputbox" cols="40" rows="25"></textarea></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><input type="button" name="trim" id="trim" value="REFRESH" onClick="ClearData();"></td>
+      <td><input type="button" name="trim2" id="trim2" value="GET TECH SITES" onClick="FilterTech();"></td>
+      <td><input type="button" name="trim3" id="trim3" value="REMOVE DUPS" onClick="RemoveDupes();"></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</form>
+</body>
