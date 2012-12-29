@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BACKLINKS EXPLORER | by Ron Carandang</title>
+<style type="text/css">
+.title {
+  font-size: 24px;
+}
+#title {
+	background-color: #6C0;
+	background-repeat: repeat-x;
+}
+#title .title {
+	color: #FFF;
+}
+#form {
+	background-color: #FFC;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	line-height: normal;
+	font-weight: lighter;
+	color: #333;
+	font-variant: normal;
+	text-transform: capitalize;
+}
+</style>
+
+<script>
+
+
+//function to check all check boxes
+function checkAll(list){
+for (i = 0; i < list.length; i++)
+	list[i].checked = true ;}
+
+//function to uncheck all check boxes
+function UNcheckAll(list)
+{for (i = 0; i < list.length; i++)
+	list[i].checked = false ;}
+
+//check if Target URL text field is empty/populated
+function ValidityCheck(){var targetURL = document.myform.MainURL.value;
+if(targetURL == ""){alert("what? no website??");}
+else {CheckBox()}
+}
+
+function CheckBox()
+{
+	if(document.myform.GoogleBL.checked===false && document.myform.YahooBL.checked===false && document.myform.BingBL.checked===false && document.myform.YandexBL.checked===false && document.myform.OSEBL.checked===false){alert("You Need to Check At Least ONE Box");}
+	else {Google()}
+}
+
+function Google()
+{
+var targetURL = document.myform.MainURL.value;
+// Clean URL anyways
+targetURL = targetURL.replace("http://","");
+targetURL = targetURL.replace("www.","");
+targetURL = targetURL.replace("\"","");
+
+Yahoo()
+
+if(document.myform.GoogleBL.checked===true){window.open('http://www.google.com/search?num=100&hl=en&safe=off&q=link%3A'+targetURL+'+-blogspot+-wordpress+-typepad+-livejournal+-posterous+-wikipedia+-yahoo+-canalblog+-youtube+-delicious+-technorati+-nytimes&oq=link%3Aadobe.com+-blogspot+-wordpress+-typepad+-livejournal+-posterous+-wikipedia+-yahoo+-canalblog+-youtube+-delicious+-technorati+-nytimes&aq=f&aqi=&aql=&gs_l=serp.3...1841.8894.0.9745.18.15.0.0.0.0.0.0..0.0...0.0.ZiuHxJ5AASE');
+
+window.open('http://www.google.com/search?num=100&hl=en&safe=off&q='+targetURL+'%3Alink+-blogspot+-wordpress+-typepad+-livejournal+-posterous+-wikipedia+-yahoo+-canalblog+-youtube+-delicious+-technorati+-nytimes&oq=moredigital.com%3Alink+-blogspot+-wordpress+-typepad+-livejournal+-posterous+-wikipedia+-yahoo+-canalblog+-youtube+-delicious+-technorati+-nytimes&aq=f&aqi=&aql=&gs_l=serp.3...14587.17758.0.18172.6.6.0.0.0.0.0.0..0.0...0.0.cYLhv5AFRmc');
+
+window.open('http://www.google.com/search?num=100&hl=en&safe=off&q=related%3A'+targetURL+'+-blogspot+-wordpress+-typepad+-livejournal+-posterous+-wikipedia+-yahoo+-canalblog+-youtube+-delicious+-technorati+-nytimes&oq=related%3Aadobe.com+-blogspot+-wordpress+-typepad+-livejournal+-posterous+-wikipedia+-yahoo+-canalblog+-youtube+-delicious+-technorati+-nytimes&aq=f&aqi=&aql=&gs_l=serp.3...30938.31927.0.32166.7.7.0.0.0.0.0.0..0.0...0.0.yS7yhB2_69A');}
+else{var dump = 1}
+}
+
+
+function Yahoo()
+{
+var targetURL = document.myform.MainURL.value;
+// Clean URL anyways
+targetURL = targetURL.replace("http://","");
+targetURL = targetURL.replace("www.","");
+targetURL = targetURL.replace("\"","");
+
+Bing()	
+
+if(document.myform.YahooBL.checked===true){window.open('http://search.yahoo.com/search;_ylt=A0oGdWN9_KBPmkYArSxXNyoA?p=link%3Ahttp%3A%2F%2F'+targetURL+'&fr2=sb-top&fr=yfp-t-701&type_param=');}
+else{var dump = 2}
+}
+
+
+function Bing()
+{
+	
+var targetURL = document.myform.MainURL.value;
+// Clean URL anyways
+targetURL = targetURL.replace("http://","");
+targetURL = targetURL.replace("www.","");
+targetURL = targetURL.replace("\"","");
+
+Yandex()
+if(document.myform.BingBL.checked===true){
+	
+window.open('http://www.bing.com/search?q=LinkFromDomain%3a'+targetURL+'&go=&qs=n&pq=linkfromdomain%3acracked.com&sc=0-0&sp=-1&sk=&qb=1&FORM=AXRE');
+window.open('http://www.bing.com/search?q=Link%3A'+targetURL+'&go=&qs=ds&form=QBRE');}
+else{var dump = 3}
+
+
+function Yandex()
+{
+	
+var targetURL = document.myform.MainURL.value;
+// Clean URL anyways
+targetURL = targetURL.replace("http://","");
+targetURL = targetURL.replace("www.","");
+targetURL = targetURL.replace("\"","");
+
+OpenSiteExplorer()
+if(document.myform.YandexBL.checked===true){
+
+window.open('http://yandex.com/yandsearch?text=%23+link+'+targetURL+'&tld=com&lr=87');
+window.open('http://yandex.com/yandsearch?text=%23+link+%22http%3A%2F%2F'+targetURL+'%22&tld=com&lr=87');
+window.open('http://yandex.com/yandsearch?text=%23+link+%22www.'+targetURL+'%22&tld=com&lr=87');
+window.open('http://yandex.com/yandsearch?text=%23+link+%22http%3A%2F%2Fwww.'+targetURL+'%22&tld=com&lr=87');
+}
+
+else{var dump = 4}
+}
+
+
+function OpenSiteExplorer()
+{
+
+var targetURL = document.myform.MainURL.value;
+// Clean URL anyways
+targetURL = targetURL.replace("http://","");
+targetURL = targetURL.replace("www.","");
+targetURL = targetURL.replace("\"","");
+
+
+if(document.myform.OSEBL.checked===true){
+window.open('http://www.opensiteexplorer.org/domains?site=www.'+targetURL+'%2F');
+window.open('http://www.opensiteexplorer.org/domains.html?page=1&site=www.'+targetURL+'%2F&sort=domain_authority&target=domain');
+window.open('http://www.opensiteexplorer.org/links?site=www.'+targetURL+'%2F');
+}
+else {var dump = 5}
+}
+} 
+</script>
+
+
+</head>
+
+<body>
+<div class="title" id="title">
+  <p class="title">SUPER BACKLINKS EXPLORER</p>
+</div>
+<div class="form" id="form">
+	<form name="myform">
+    <p>
+      <strong>
+      <label for="MainURL">Authority Site (PR 3 +):</label>
+      </strong></p>
+    <p>
+      <input name="MainURL" type="text" id="MainURL" size="50" /> 
+    </p>
+    
+ <p>
+      <input type="checkbox" name="list" id="GoogleBL" />
+      <strong>Google</strong> <em>( Operators: &quot;link:&quot;,&quot;:link&quot;, &quot;related:&quot; - Opens three(3) windows )</em></p>
+ <p>
+   <input type="checkbox" name="list" id="YahooBL" />
+   <strong>Yahoo</strong> <em>( Opens One (1) window )</em></p>
+ <p>
+   <input type="checkbox" name="list" id="BingBL" />
+   <strong>Bing</strong> <em>(Operators: &quot;link:&quot;,&quot;LinkFromDomain&quot; - Opens two (2) windows )</em></p>
+ <p>
+   <input type="checkbox" name="list" id="YandexBL" />
+   <strong>Yandex</strong> <em>( variates URL format - Opens two (4) windows )</em></p>
+ <p>
+   <input type="checkbox" name="list" id="OSEBL" />
+   <strong>OpenSiteExplorer</strong> <em>( Advanced Reporting - takes a while to load - Opens three (3) windows - limited per day)</em>   </p>
+ <p>
+   <input type="button" name="openAll" id="openAll" value="Check All!" onClick="checkAll(document.myform.list)" />
+   <input type="button" name="openAll" id="openAll" value="Uncheck All!" onClick="UNcheckAll(document.myform.list)" />
+   </p>
+ </p>
+ <p>
+      <input type="button" name="CheckBLs" id="CheckBLs" value="Search Backlinks!" onClick="ValidityCheck()"/>
+ </p>
+  </form>
+</div>
+</p>
+<h6 class = "footer"><strong>W</strong><strong>HAT ARE AUTHORITY SITES?</strong></h6>
+<ul>
+  <li>
+    <h6 class="footer"><em><strong>Authority is seen as a measure of the quality of a particular site, established through blend of size, age, importance and relevance. A link from an authority site can carry significant weight.</strong></em></h6>
+  </li>
+  <li>
+    <h6 class="footer"><em><strong>A site that is regarded by search engines to be authoritative in it's chosen field of subject matter. Industry leaders, world-class education establishments and leading experts in particular fields seem to carry most authority. Dot org, dot ed and dot ac.uk sites for example.</strong></em></h6>
+  </li>
+  <li>
+    <h6 class="footer"><em><strong>Websites that are hubs and authorities in the Internet community can be regarded as Authority sites.</strong></em></h6>
+  </li>
+  <li>
+    <h6 class="footer"><em><strong>Many in the Search Engine Optimization (SEO) community regard Authority sites as those that dominate search results for a specific search word or phrase.</strong></em></h6>
+  </li>
+</ul>
+</body>
+</html>
