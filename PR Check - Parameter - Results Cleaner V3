@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0092)file://localhost/Users/Rica/Library/Mail%20Downloads/TRIM%20&%20DEDUPE%20TOOL%20ver2C-1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>PR Check - Parameter - Results Cleaner V3| by Ron Carandang</title>
+<style type="text/css">
+#myform p {
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	color: #FFF;
+}
+.title {
+	background-color: #FF66FF;
+}
+#myform table {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.note {
+	font-style: italic;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.notecolor {
+	color: #F00;
+}
+.subtitle {
+	font-size: 16px;
+	background-color: #CCF;
+}
+</style>
+<script>
+function trimURLs()
+{
+	var count =0;
+	var mainlist = document.myform.mainlist1.value;
+	mainlist = mainlist.replace(/\r/gi, "\n");
+	mainlist = mainlist.replace(/\n+/gi, "\n");
+	mainlist = mainlist.replace("\"","");
+
+
+
+
+	var listvalues = new Array();
+	var newlist = new Array();
+	
+	listvalues = mainlist.split("\n");
+	
+		for (var i=0; i<listvalues.length; i++)
+		{
+		var urlarray1 = listvalues[i].replace("http://","").replace("\"","").replace("https://","").replace("www.","");
+		var urlarray2 = urlarray1.split(',');
+		var urlarray3 = "http://"+urlarray2[0]+","+urlarray2[1];
+		newlist = newlist.concat(urlarray3);
+		count++;
+		}
+	
+	document.myform.outputbox.value = newlist.join("\r\n");
+	document.myform.outputbox2.value = newlist.join("\r\n");
+	alert(count + ' values cleaned!');
+
+}
+
+function FilterURLs()
+{	//	starts the function	//
+var count = 0 //	loop counter	//
+var mainlist = document.myform.outputbox.value; //	textarea where initial data is contained	//
+
+var listvalues = new Array(); //	array that contains all the urls per line	//
+var newlist = new Array(); //	array to contain the final results of the filtered urls	//
+listvalues = mainlist.split("\n"); //	splits and converts urls per line into the 'listvalues' array	//
+
+//	ARRAY CONTAINING URLS TO FILTER CHECK	//
+var unwantedURLs = ["","-257","0","1","7","8","9","10"];
+
+
+// LOOP TO CHECK & FILTER UNWANTED URLS	//
+for (var i=0; i<listvalues.length; i++) // loop script initiator //
+			{ //	starts for loop //
+	var listURL = listvalues[i].split(","); // takes the values in 'listvalues' array and splits using period '.' results becomes 'listURL' array	//
+	// listURL[1] contains the URL to be filtered //
+	
+	// start checking URLs //
+	// if else if statement to check url from unwanted URLs array //
+	if ( listURL[1] == unwantedURLs[0]){ count++; }
+else if ( listURL[1] == unwantedURLs[1]){ count++; }
+else if ( listURL[1] == unwantedURLs[2]){ count++; }
+else if ( listURL[1] == unwantedURLs[3]){ count++; }
+else if ( listURL[1] == unwantedURLs[4]){ count++; }
+else if ( listURL[1] == unwantedURLs[5]){ count++; }
+else if ( listURL[1] == unwantedURLs[6]){ count++; }
+else if ( listURL[1] == unwantedURLs[7]){ count++; }
+else if ( listURL[1] == unwantedURLs[8]){ count++; }
+else if ( listURL[1] == unwantedURLs[9]){ count++; }
+else if ( listURL[1] == unwantedURLs[10]){ count++; }
+else if ( listURL[1] == unwantedURLs[11]){ count++; }
+else if ( listURL[1] == unwantedURLs[12]){ count++; }
+else if ( listURL[1] == unwantedURLs[13]){ count++; }
+else if ( listURL[1] == unwantedURLs[14]){ count++; }
+else if ( listURL[1] == unwantedURLs[15]){ count++; }
+else if ( listURL[1] == unwantedURLs[16]){ count++; }
+else if ( listURL[1] == unwantedURLs[17]){ count++; }
+else if ( listURL[1] == unwantedURLs[18]){ count++; }
+else if ( listURL[1] == unwantedURLs[19]){ count++; }
+else if ( listURL[1] == unwantedURLs[20]){ count++; }
+else if ( listURL[1] == unwantedURLs[21]){ count++; }
+else if ( listURL[1] == unwantedURLs[22]){ count++; }
+else if ( listURL[1] == unwantedURLs[23]){ count++; }
+else if ( listURL[1] == unwantedURLs[24]){ count++; }
+else if ( listURL[1] == unwantedURLs[25]){ count++; }
+else if ( listURL[1] == unwantedURLs[26]){ count++; }
+else if ( listURL[1] == unwantedURLs[27]){ count++; }
+else if ( listURL[1] == unwantedURLs[28]){ count++; }
+else if ( listURL[1] == unwantedURLs[29]){ count++; }
+else if ( listURL[1] == unwantedURLs[30]){ count++; }
+else if ( listURL[1] == unwantedURLs[31]){ count++; }
+else if ( listURL[1] == unwantedURLs[32]){ count++; }
+else if ( listURL[1] == unwantedURLs[33]){ count++; }
+else if ( listURL[1] == unwantedURLs[34]){ count++; }
+else if ( listURL[1] == unwantedURLs[35]){ count++; }
+else if ( listURL[1] == unwantedURLs[36]){ count++; }
+else if ( listURL[1] == unwantedURLs[37]){ count++; }
+else if ( listURL[1] == unwantedURLs[38]){ count++; }
+else if ( listURL[1] == unwantedURLs[39]){ count++; }
+else if ( listURL[1] == unwantedURLs[40]){ count++; }
+else if ( listURL[1] == unwantedURLs[41]){ count++; }
+else if ( listURL[1] == unwantedURLs[42]){ count++; }
+else if ( listURL[1] == unwantedURLs[43]){ count++; }
+else if ( listURL[1] == unwantedURLs[44]){ count++; }
+else if ( listURL[1] == unwantedURLs[45]){ count++; }
+else if ( listURL[1] == unwantedURLs[46]){ count++; }
+else if ( listURL[1] == unwantedURLs[47]){ count++; }
+else if ( listURL[1] == unwantedURLs[48]){ count++; }
+else if ( listURL[1] == unwantedURLs[49]){ count++; }
+else if ( listURL[1] == unwantedURLs[50]){ count++; }
+else if ( listURL[1] == unwantedURLs[51]){ count++; }
+else if ( listURL[1] == unwantedURLs[52]){ count++; }
+else if ( listURL[1] == unwantedURLs[53]){ count++; }
+else if ( listURL[1] == unwantedURLs[54]){ count++; }
+else if ( listURL[1] == unwantedURLs[55]){ count++; }
+else if ( listURL[1] == unwantedURLs[56]){ count++; }
+else if ( listURL[1] == unwantedURLs[57]){ count++; }
+else if ( listURL[1] == unwantedURLs[58]){ count++; }
+else if ( listURL[1] == unwantedURLs[59]){ count++; }
+else if ( listURL[1] == unwantedURLs[60]){ count++; }
+else if ( listURL[1] == unwantedURLs[61]){ count++; }
+else if ( listURL[1] == unwantedURLs[62]){ count++; }
+else if ( listURL[1] == unwantedURLs[63]){ count++; }
+else if ( listURL[1] == unwantedURLs[64]){ count++; }
+else if ( listURL[1] == unwantedURLs[65]){ count++; }
+else if ( listURL[1] == unwantedURLs[66]){ count++; }
+else if ( listURL[1] == unwantedURLs[67]){ count++; }
+else if ( listURL[1] == unwantedURLs[68]){ count++; }
+else if ( listURL[1] == unwantedURLs[69]){ count++; }
+else if ( listURL[1] == unwantedURLs[70]){ count++; }
+	else {	newlist = newlist.concat(listvalues[i]);}
+			}	//	closes the for loop	//
+			
+	// FILTER SUMMARY ALERT BOX //
+	var z= listvalues.length;
+	var unique = z-count;
+	document.myform.outputbox.value = newlist.join("\n")//.replace(",","\n");//
+	alert('Removed ' + count + ' unwanted values. . . ' + unique +' PR2 - PR6 Sites remain!');
+}
+
+function FilterURLs2()
+{	//	starts the function	//
+var count = 0 //	loop counter	//
+var mainlist = document.myform.outputbox2.value; //	textarea where initial data is contained	//
+
+var listvalues = new Array(); //	array that contains all the urls per line	//
+var newlist = new Array(); //	array to contain the final results of the filtered urls	//
+listvalues = mainlist.split("\n"); //	splits and converts urls per line into the 'listvalues' array	//
+
+//	ARRAY CONTAINING URLS TO FILTER CHECK	//
+var unwantedURLs = ["","-257","2","3","4","5","6","7","8","9","10"];
+
+
+// LOOP TO CHECK & FILTER UNWANTED URLS	//
+for (var i=0; i<listvalues.length; i++) // loop script initiator //
+			{ //	starts for loop //
+	var listURL = listvalues[i].split(","); // takes the values in 'listvalues' array and splits using period '.' results becomes 'listURL' array	//
+	// listURL[1] contains the URL to be filtered //
+	
+	// start checking URLs //
+	// if else if statement to check url from unwanted URLs array //
+	if ( listURL[1] == unwantedURLs[0]){ count++; }
+else if ( listURL[1] == unwantedURLs[1]){ count++; }
+else if ( listURL[1] == unwantedURLs[2]){ count++; }
+else if ( listURL[1] == unwantedURLs[3]){ count++; }
+else if ( listURL[1] == unwantedURLs[4]){ count++; }
+else if ( listURL[1] == unwantedURLs[5]){ count++; }
+else if ( listURL[1] == unwantedURLs[6]){ count++; }
+else if ( listURL[1] == unwantedURLs[7]){ count++; }
+else if ( listURL[1] == unwantedURLs[8]){ count++; }
+else if ( listURL[1] == unwantedURLs[9]){ count++; }
+else if ( listURL[1] == unwantedURLs[10]){ count++; }
+else if ( listURL[1] == unwantedURLs[11]){ count++; }
+else if ( listURL[1] == unwantedURLs[12]){ count++; }
+else if ( listURL[1] == unwantedURLs[13]){ count++; }
+else if ( listURL[1] == unwantedURLs[14]){ count++; }
+else if ( listURL[1] == unwantedURLs[15]){ count++; }
+else if ( listURL[1] == unwantedURLs[16]){ count++; }
+else if ( listURL[1] == unwantedURLs[17]){ count++; }
+else if ( listURL[1] == unwantedURLs[18]){ count++; }
+else if ( listURL[1] == unwantedURLs[19]){ count++; }
+else if ( listURL[1] == unwantedURLs[20]){ count++; }
+else if ( listURL[1] == unwantedURLs[21]){ count++; }
+else if ( listURL[1] == unwantedURLs[22]){ count++; }
+else if ( listURL[1] == unwantedURLs[23]){ count++; }
+else if ( listURL[1] == unwantedURLs[24]){ count++; }
+else if ( listURL[1] == unwantedURLs[25]){ count++; }
+else if ( listURL[1] == unwantedURLs[26]){ count++; }
+else if ( listURL[1] == unwantedURLs[27]){ count++; }
+else if ( listURL[1] == unwantedURLs[28]){ count++; }
+else if ( listURL[1] == unwantedURLs[29]){ count++; }
+else if ( listURL[1] == unwantedURLs[30]){ count++; }
+else if ( listURL[1] == unwantedURLs[31]){ count++; }
+else if ( listURL[1] == unwantedURLs[32]){ count++; }
+else if ( listURL[1] == unwantedURLs[33]){ count++; }
+else if ( listURL[1] == unwantedURLs[34]){ count++; }
+else if ( listURL[1] == unwantedURLs[35]){ count++; }
+else if ( listURL[1] == unwantedURLs[36]){ count++; }
+else if ( listURL[1] == unwantedURLs[37]){ count++; }
+else if ( listURL[1] == unwantedURLs[38]){ count++; }
+else if ( listURL[1] == unwantedURLs[39]){ count++; }
+else if ( listURL[1] == unwantedURLs[40]){ count++; }
+else if ( listURL[1] == unwantedURLs[41]){ count++; }
+else if ( listURL[1] == unwantedURLs[42]){ count++; }
+else if ( listURL[1] == unwantedURLs[43]){ count++; }
+else if ( listURL[1] == unwantedURLs[44]){ count++; }
+else if ( listURL[1] == unwantedURLs[45]){ count++; }
+else if ( listURL[1] == unwantedURLs[46]){ count++; }
+else if ( listURL[1] == unwantedURLs[47]){ count++; }
+else if ( listURL[1] == unwantedURLs[48]){ count++; }
+else if ( listURL[1] == unwantedURLs[49]){ count++; }
+else if ( listURL[1] == unwantedURLs[50]){ count++; }
+else if ( listURL[1] == unwantedURLs[51]){ count++; }
+else if ( listURL[1] == unwantedURLs[52]){ count++; }
+else if ( listURL[1] == unwantedURLs[53]){ count++; }
+else if ( listURL[1] == unwantedURLs[54]){ count++; }
+else if ( listURL[1] == unwantedURLs[55]){ count++; }
+else if ( listURL[1] == unwantedURLs[56]){ count++; }
+else if ( listURL[1] == unwantedURLs[57]){ count++; }
+else if ( listURL[1] == unwantedURLs[58]){ count++; }
+else if ( listURL[1] == unwantedURLs[59]){ count++; }
+else if ( listURL[1] == unwantedURLs[60]){ count++; }
+else if ( listURL[1] == unwantedURLs[61]){ count++; }
+else if ( listURL[1] == unwantedURLs[62]){ count++; }
+else if ( listURL[1] == unwantedURLs[63]){ count++; }
+else if ( listURL[1] == unwantedURLs[64]){ count++; }
+else if ( listURL[1] == unwantedURLs[65]){ count++; }
+else if ( listURL[1] == unwantedURLs[66]){ count++; }
+else if ( listURL[1] == unwantedURLs[67]){ count++; }
+else if ( listURL[1] == unwantedURLs[68]){ count++; }
+else if ( listURL[1] == unwantedURLs[69]){ count++; }
+else if ( listURL[1] == unwantedURLs[70]){ count++; }
+	else {	newlist = newlist.concat(listvalues[i]);}
+			}	//	closes the for loop	//
+			
+	// FILTER SUMMARY ALERT BOX //
+	var z= listvalues.length;
+	var unique = z-count;
+	document.myform.outputbox2.value = newlist.join("\n")//.replace(",","\n");//
+	alert(unique +' PR0 - PR1 Sites remain!');
+}
+
+</script></head>
+
+
+<body>
+<form name="myform" id="myform">
+  <div class="title">
+    <p>PR CHECK - PARAMETER - CLEAN UP AND FORMATTING TOOL Ver. 3</div>
+       <em>Prepare PR checked URLs for LinkNova Entry</em></p>
+  <table width="200" border="0" cellspacing="5" cellpadding="0">
+    <tbody><tr>
+      <td height="24" bgcolor="#FFFFCC">Enter results from PaRaMeter PR Checker tool below: <span class="note"><span class="notecolor"><br> ** 1 value per line<br> ** no empty lines or spaces between lines.</span></span></td>
+      <td bgcolor="#CCFF99">PR 2 - PR 6 SITES</td>
+      <td bgcolor="#FF9999">PR 0 - PR 1 SITES</td>
+    </tr>
+    <tr>
+      <td><textarea name="mainlist1" id="mainlist1" cols="45" rows="25"></textarea></td>
+      <td><textarea name="outputbox" id="outputbox" cols="45" rows="25"></textarea></td>
+      <td><textarea name="outputbox2" id="outputbox2" cols="45" rows="25"></textarea></td>
+    </tr>
+  </tbody></table>
+</form>
+<table width="685" border="0" cellspacing="5" cellpadding="0">
+  <tbody><tr>
+    <td width="341">
+    <input type="submit" name="trim" id="trim" value="CLEAN UP!" onclick="trimURLs();"> 
+    <input type="submit" name="trim" id="trim" value="Get PR 2 - PR 6" onclick="FilterURLs();"> 
+    <input type="submit" name="trim" id="trim" value="Get PR 0 - PR 1" onclick="FilterURLs2();"> 
+    </td>
+  </tr>
+</tbody></table>
+<p>&nbsp;</p>
+
+
+</body></html>
