@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Keyword Jumbler - Google Farming Tool V. 2.0 - Ops Version</title>
+		<style>
+			body {
+				color: #333333;
+    			font-family: Verdana,Geneva,sans-serif;
+				font-size: 12px;
+				background: #CCCC99;
+			}
+			h1 {
+				font-size: 1.6em;
+				color: #990033;
+				text-align: center;
+				text-shadow: 0.1em 0.1em 0.02em #FFFFFF;
+			}
+			table th {
+				color: #666633;
+				font-weight: bold;
+				font-size: 1.1em;
+				text-align: left;			
+			}
+			span#jumbleSubmit {
+				font-size: 1.2em;
+				color: #666633;
+				font-weight: bold;
+				padding: 5px 8px;
+				border: 1px solid #C0C0C0;
+				background: #EEEEEE;
+				border-radius: 5px;
+			}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/**
+				 * Keyword jumbler form is submitted
+				 * Creates list of unique string keywords based on combined keywords
+				 */
+				$('#jumbleSubmit').on('click', function() {
+					// get current textarea values and convert to array
+					var currentMainKeywords = $('#mainKeywordsBox').val().split('\n');
+					var currentOperatorsBox = $('#operatorsBox').val().split('\n');
+					var currentGuestPostFiltersBox = $('#guestPostFiltersBox').val().split('\n');
+					var currentFiltersBox = $('#filtersBox').val().split('\n');
+					
+					// keywords result container
+					var resultList = new Array();
+					rk = 0;
+
+					// loop through every main keyword box				
+					for (cmk = 0; cmk < currentMainKeywords.length; cmk++) {
+						primary = currentMainKeywords[cmk];
+						
+						// loop through every operators box
+						for (co = 0; co < currentOperatorsBox.length; co++) {
+							second = currentOperatorsBox[co];
+							
+							// loop through every guest post filters box
+							for (cgp = 0; cgp < currentGuestPostFiltersBox.length; cgp++) {
+								third = currentGuestPostFiltersBox[cgp];
+								
+								// loop through every filters box
+								for (cf = 0; cf < currentFiltersBox.length; cf++) {
+									fourth = currentFiltersBox[cf];
+
+									// combine keywords								
+									resultList[rk] = primary + " " + second + third + " " + fourth + "\n";
+									rk++;
+								}
+							}
+						}
+					}
+					
+					// add result to output box
+					$('#outputBox').val(resultList.join('\n'));
+					alert( rk + " Combination of keywords Created!");
+				});
+			});
+		</script>
+	</head>
+
+
+	<body>
+	<h1>KEYWORD JUMBLER - GOOGLE FARMING STRING GENERATOR TOOL</h1>
+		<form id="keywordsForm">
+			<table width="200" border="0" cellspacing="5" align="center">
+				<tr>
+					<th>Main Keywords</th>
+					<th><p>Search Operators</p></th>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="mainKeywordsBox" id="mainKeywordsBox" cols="45" rows="5">keywordA
+keywordA OR keywordB
+~keywordA</textarea>
+					</td>
+				  	<td>
+						<textarea name="operatorsBox" id="operatorsBox" cols="45" rows="5">intitle:blog 
+inurl:blog 
+OR 
+inurl:tag 
+inurl:category 
+inurl:
+intitle:</textarea>
+					</td>
+				</tr>
+				<tr>
+					<th>Filters</th>
+					<th>Secondary &amp; Exact Match Keywords (e.g: &quot;I am a sports blogger&quot;)</th>
+				</tr>
+				<tr>
+					<td>
+						<textarea name="filtersBox" id="filtersBox" cols="45" rows="5">-inurl:blogspot.com -inurl:wordpress.com -seo -poker -casino -bingo -viagra -pills -pharmacy</textarea>
+					</td>
+					<td>
+						<textarea name="guestPostFiltersBox" id="guestPostFiltersBox" cols="45" rows="5">"guest writer"
+"guest bloggers"
+"write for us"
+"become an author"
+"guest contributor"
+"guest blog"
+"bloggers wanted"
+"become a contributor"
+"guest article"
+"guest post"
+"write a guest post"
+"submit your article"
+"submit a guest post"
+"guest post guidelines"
+"contributor guidelines"
+"submit your contribution"
+"become a guest writer"
+"looking for guest bloggers"
+"guest bloggers wanted"</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="left">
+						<span id="jumbleSubmit">JUMBLE!</span>				
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<textarea name="outputBox" id="outputBox" cols="95" rows="15"></textarea>					
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right"><p>
+					  <input id="reset" name="reset" value="RESET" type="reset">
+					  </p>			
+					</td>
+				</tr>
+				<tr>
+				  <td colspan="2" align="right">created by Star Misa</td>
+			  </tr>		
+			</table>
+		</form>
+	</body>
+</html>
